@@ -142,3 +142,47 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// destructuring
+const book = getBook(2);
+book;
+
+const { title, author, genres, pages, publicationDate, hasMovieAdaptation } =
+  book;
+
+title;
+author;
+console.log(title, author, genres);
+
+// const primaryGnre = genres[0];
+// const secondaryGnre = genres[2];
+// console.log(primaryGnre, secondaryGnre);
+
+// const [primaryGenre, secondaryGenre] = genres;
+// console.log(primaryGenre, secondaryGenre);
+
+//Rest and Spread operator
+
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+console.log(primaryGenre, secondaryGenre, otherGenres);
+
+const updateBook = { ...book, moviePublicationDate: "2001-12-19" };
+
+updateBook;
+
+console.log(true && "Some string");
+console.log(false && "Some string");
+
+console.log(hasMovieAdaptation && "This book has a movie");
+
+console.log("jonas" && " Some string");
+console.log(0 && "some string");
+
+console.log(true || "some string");
+
+console.log(false || "some string");
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "not translated";
+spanishTranslation;
